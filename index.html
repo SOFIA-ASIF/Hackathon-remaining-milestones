@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>My Resume</title>
+</head>
+
+<body>
+  <form id="resume-form">
+    <h2>Personal Information</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required />
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" required />
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" required />
+
+    <h2>Education</h2>
+    <label for="education">Education:</label>
+    <input type="text" id="education" required />
+
+    <h2>Summary</h2>
+    <label for="education">Summary:</label>
+    <input type="text" id="summary" required />
+
+    <h2>Work Experience</h2>
+    <label for="experience">Work Experience (Optional):</label>
+    <textarea id="experience"></textarea>
+
+    <h2>Skills</h2>
+    <label for="skills">Skills (comma-separated):</label>
+    <input type="text" id="skills" required />
+
+    <h2>Languages</h2>
+    <label for="Languages">Languages (comma-separated)(optional):</label>
+    <input type="text" id="languages" />
+
+    <h2>Hobbies</h2>
+    <label for="Hobbies">Hobbies (comma-separated)(optional):</label>
+    <input type="text" id="hobbies" />
+    <br>
+    <h2>Profile Picture</h2>
+    <!-- <label for="profile-picyure">Profile Picture</label> -->
+    <input type="file" id="profile-pic" accept="image/*" />
+    <img id="profile-pic-preview" src="" alt="Profile Picture"
+      style="display:none; width: 100px; height: auto; margin-top: 15px;" />
+    <br>
+
+    <button type="submit">Generate Resume</button>
+  </form>
+
+  <div id="resume-output"></div>
+
+  <button id="edit-btn" class="save-edit" style="display: none;">Edit</button>
+  <button id="save-btn" class="save-edit" style="display: none;">Download</button>
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+    integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    window.onload = function () {
+      document.getElementById("save-btn")
+          .addEventListener("click", () => {
+              const resume = this.document.getElementById("resume-output");
+              var opt = {
+                  filename: 'resume.pdf',
+                  image: { type: 'jpeg', quality: 0.98 },
+                  html2canvas:  { scale: 10 },
+                  jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+              };
+              html2pdf().from(resume).set(opt).save();
+          })
+      }
+  </script>
+</body>
+</html>

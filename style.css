@@ -1,0 +1,258 @@
+body {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  background-color: #f4f4f4;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.personal-info {
+  width: 40%;
+  /* height: 900px; */
+  background-color: #001f3f;
+  /* padding-right: 5px; */
+}
+
+.image {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.name {
+  /* color: #3A6D8C; */
+  text-align: center;
+  font-size: 45px;
+  margin: 5px 0 5px 0;
+}
+
+.icons {
+  color: #5f8094;
+  padding-bottom: 8px;
+}
+
+.details {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.div-container {
+  position: relative; /* Needed for positioning the ::after element */
+  padding-bottom: 30px; /*Optional: space between the div and the line*/
+}
+
+.div-container::after {
+  content: ""; /* Required to create the pseudo-element */
+  display: block;
+  width: 240px; /* Set the width of the line */
+  height: 2px; /* Set the height (thickness) of the line */
+  background-color: rgb(243, 235, 235); /* Line color */
+  margin: 0 auto; /* Center the line */
+  margin-top: 10px; /* Space between the div and the line */
+}
+
+.skills {
+  margin: 5px;
+  font-size: 30px;
+  text-align: center;
+  /* padding: 0%; */
+}
+
+.skills.hidden {
+  border: none;
+}
+
+.skill-name {
+  width: 100%;
+  height: auto;
+  padding-left: 15%;
+  margin-bottom: 20px;
+  color: white;
+}
+.personal-info h1 {
+  color: #98a9b4;
+}
+.personal-info h2 {
+  color: #ead8b1;
+}
+.details span {
+  color: antiquewhite;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding-right: 20px;
+}
+.details i {
+  align-self: flex-end;
+  margin-bottom: 5px;
+}
+
+.work {
+  width: 60%;
+  /* height: 900px; */
+  position: relative;
+  background-color: white;
+  /* margin: 20px; */
+}
+
+.work::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 50%;
+  background-color: #001f3f;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+}
+
+.work::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 30px;
+  background-color: #001f3f;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+}
+
+.work {
+  margin: 0 0 0 30px;
+}
+
+.work h2 {
+  width: 80%;
+  padding: 10px 0 15px 20px;
+  border-bottom: 2.5px solid #001f3f; /* Solid bottom border */
+  position: relative; /* Allow absolute positioning for the shadow */
+  color: #001f3f;
+  font-size: xx-large;
+}
+
+.work h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* Position below the border */
+  width: 100%;
+  height: 3px; /* Height of the shadow effect */
+  background-color: #001f3f; /* Shadow color with transparency */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Additional shadow for depth */
+}
+.hidden {
+  display: none;
+}
+
+.work p {
+  text-align: justify;
+  margin-right: 35px;
+}
+
+#toggle-summary {
+  margin-top: 55px;
+}
+.personal-info,
+.work {
+  flex-grow: 1;
+}
+button {
+  margin: 20px 0 0 20px;
+  padding: 7px 12px;
+  background-color: #001f3f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px 5px 5px 5px;
+}
+
+button:hover {
+  background-color: #ead8b1;
+  color: #001f3f;
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .personal-info,
+  .work {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .name {
+    font-size: 35px;
+  }
+
+  .skills,
+  .skill-name {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  .details span {
+    font-size: 16px;
+    padding-right: 10px;
+  }
+
+  button {
+    margin: 10px 0;
+    width: 50%;
+    padding: 10px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+  .work p {
+    padding: 15px;
+  }
+
+  .work::after,
+  .work::before {
+    display: none;
+  }
+}
+
+
+
+#resume-form{
+  background-color: white;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  margin: 25px;
+  width: 30rem;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.save-edit{
+  width: 200px;
+  height: 30px;
+  margin: 10px;
+  margin-left: 100px;
+  align-items: center;
+}
